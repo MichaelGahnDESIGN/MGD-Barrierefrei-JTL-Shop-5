@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: read
 
 jobs:
   check:
@@ -27,3 +28,6 @@ jobs:
         run: sh scripts/build-release.sh && unzip -t release/MGD_Barrierefrei-1.0.0.zip
       - name: Geheimnisse prüfen
         uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITLEAKS_ENABLE_COMMENTS: 'false'
