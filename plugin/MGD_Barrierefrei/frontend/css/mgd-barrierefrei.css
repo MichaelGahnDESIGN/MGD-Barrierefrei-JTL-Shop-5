@@ -1,0 +1,31 @@
+:root { --mgd-a11y-scale: 1; }
+
+.mgd-a11y { position: fixed; z-index: 1060; bottom: 1rem; max-width: min(23rem, calc(100vw - 2rem)); font-size: 1rem; }
+.mgd-a11y[data-position="left"] { left: 1rem; }
+.mgd-a11y[data-position="right"] { right: 1rem; }
+.mgd-a11y button { font: inherit; }
+.mgd-a11y__trigger { display: inline-flex; align-items: center; gap: .55rem; border: 0; border-radius: 999px; padding: .78rem 1.05rem; color: #fff; background: var(--mgd-a11y-accent, #b91c1c); box-shadow: 0 10px 30px rgba(0, 0, 0, .24); cursor: pointer; }
+.mgd-a11y__dialog { position: absolute; bottom: 0; width: min(23rem, calc(100vw - 2rem)); padding: 1.2rem; border: 1px solid #d7dce2; border-radius: 1rem; color: #18212a; background: #fff; box-shadow: 0 18px 48px rgba(0, 0, 0, .24); }
+.mgd-a11y[data-position="left"] .mgd-a11y__dialog { left: 0; }
+.mgd-a11y[data-position="right"] .mgd-a11y__dialog { right: 0; }
+.mgd-a11y__dialog header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.mgd-a11y__dialog h2 { margin: 0; font-size: 1.15rem; }
+.mgd-a11y__close, .mgd-a11y__actions button { border: 1px solid #7b8794; border-radius: .55rem; color: #18212a; background: #fff; cursor: pointer; }
+.mgd-a11y__close { min-width: 2.4rem; min-height: 2.4rem; }
+.mgd-a11y__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; margin: 1rem 0; }
+.mgd-a11y__actions button { min-height: 2.8rem; }
+.mgd-a11y__actions button:hover, .mgd-a11y__actions button:focus-visible { border-color: var(--mgd-a11y-accent, #b91c1c); color: var(--mgd-a11y-accent, #b91c1c); }
+.mgd-a11y__credit { font-size: .85rem; }
+.mgd-a11y a { text-decoration: none; }
+.mgd-a11y a:hover { opacity: .75; }
+.mgd-a11y--contrast { filter: contrast(1.35); }
+.mgd-a11y--gray { filter: grayscale(1); }
+.mgd-a11y--motion *, .mgd-a11y--motion *::before, .mgd-a11y--motion *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+.mgd-a11y--focus *:focus-visible { outline: 3px solid #005fcc !important; outline-offset: 3px !important; }
+html { font-size: calc(100% * var(--mgd-a11y-scale)); }
+
+@media (max-width: 420px) {
+  .mgd-a11y { bottom: .65rem; }
+  .mgd-a11y[data-position="left"] { left: .65rem; }
+  .mgd-a11y[data-position="right"] { right: .65rem; }
+}

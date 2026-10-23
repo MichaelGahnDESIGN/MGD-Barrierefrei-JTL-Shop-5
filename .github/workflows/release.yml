@@ -1,0 +1,20 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Paket bauen
+        run: sh scripts/build-release.sh
+      - name: GitHub-Release veröffentlichen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: package=$(find release -maxdepth 1 -type f -name '*.zip' -print -quit); gh release create "$GITHUB_REF_NAME" "$package" "$package.sha256" --title "MGD Barrierefrei $GITHUB_REF_NAME" --generate-notes

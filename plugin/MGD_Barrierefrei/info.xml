@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jtlshopplugin>
+    <Name>MGD Barrierefrei</Name>
+    <Description>Kostenlose Bedienhilfe und konfigurierbare Erklärung zur Barrierefreiheit für JTL-Shop 5.</Description>
+    <Author>Michael Gahn DESIGN</Author>
+    <URL>https://michael-gahn.de</URL>
+    <XMLVersion>100</XMLVersion>
+    <MinShopVersion>5.7.2</MinShopVersion>
+    <PluginID>MGD_Barrierefrei</PluginID>
+    <CreateDate>2026-10-23</CreateDate>
+    <Version>1.0.0</Version>
+    <Install>
+        <Adminmenu>
+            <Customlink sort="1"><Name>Erklärung erzeugen</Name><Filename>statement.php</Filename></Customlink>
+            <Settingslink sort="2">
+                <Name>Einstellungen</Name>
+                <Setting type="selectbox" initialValue="Y" sort="1" conf="Y">
+                    <Name>Bedienhilfe aktivieren</Name><Description>Zeigt eine lokale, zugängliche Bedienhilfe im Shop an.</Description><ValueName>enabled</ValueName>
+                    <SelectboxOptions><Option value="Y" sort="1">Ja</Option><Option value="N" sort="2">Nein</Option></SelectboxOptions>
+                </Setting>
+                <Setting type="selectbox" initialValue="left" sort="2" conf="Y">
+                    <Name>Position</Name><Description>Position der Schaltfläche am unteren Fensterrand.</Description><ValueName>position</ValueName>
+                    <SelectboxOptions><Option value="left" sort="1">Unten links</Option><Option value="right" sort="2">Unten rechts</Option></SelectboxOptions>
+                </Setting>
+                <Setting type="text" initialValue="Barrierefreiheit" sort="3" conf="Y"><Name>Beschriftung</Name><Description>Text der Schaltfläche.</Description><ValueName>button_label</ValueName></Setting>
+                <Setting type="text" initialValue="#b91c1c" sort="4" conf="Y"><Name>Akzentfarbe</Name><Description>Hex-Farbwert, zum Beispiel #b91c1c. Kontrast vor Veröffentlichung prüfen.</Description><ValueName>accent_color</ValueName></Setting>
+                <Setting type="text" initialValue="" sort="5" conf="Y"><Name>Link zur Erklärung</Name><Description>Relative Adresse oder HTTPS-URL der veröffentlichten Erklärungsseite.</Description><ValueName>statement_url</ValueName></Setting>
+                <Setting type="text" initialValue="" sort="6" conf="Y"><Name>Unternehmen</Name><Description>Name des verantwortlichen Unternehmens.</Description><ValueName>organisation</ValueName></Setting>
+                <Setting type="text" initialValue="" sort="7" conf="Y"><Name>Verantwortliche Stelle</Name><Description>Kontaktperson oder zuständige Stelle.</Description><ValueName>responsible_name</ValueName></Setting>
+                <Setting type="text" initialValue="" sort="8" conf="Y"><Name>Kontakt-E-Mail</Name><Description>Kontakt für Rückmeldungen zu Barrieren.</Description><ValueName>contact_email</ValueName></Setting>
+                <Setting type="text" initialValue="" sort="9" conf="Y"><Name>Bekannte Barrieren</Name><Description>Kurze, konkret zu prüfende Beschreibung; im Erklärungsentwurf verwendet.</Description><ValueName>known_barriers</ValueName></Setting>
+                <Setting type="selectbox" initialValue="teilweise" sort="10" conf="Y">
+                    <Name>Eigene Einschätzung</Name><Description>Wird im Entwurf der Erklärung ausgegeben.</Description><ValueName>statement_status</ValueName>
+                    <SelectboxOptions><Option value="teilweise" sort="1">Teilweise barrierefrei</Option><Option value="vollstaendig" sort="2">Vollständig barrierefrei</Option><Option value="nicht" sort="3">Noch nicht vollständig barrierefrei</Option></SelectboxOptions>
+                </Setting>
+            </Settingslink>
+        </Adminmenu>
+    </Install>
+</jtlshopplugin>
