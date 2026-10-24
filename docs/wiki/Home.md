@@ -4,4 +4,5 @@ Die kostenlose Erweiterung stellt eine lokale Bedienhilfe bereit und erzeugt ein
 
 - [Einrichten](Einrichten.md)
 - [Erklärung prüfen](Erklaerung-pruefen.md)
+- [Weitere Plugins](Weitere-Plugins.md)
 - [Datenschutz und Sicherheit](Datenschutz-und-Sicherheit.md)
