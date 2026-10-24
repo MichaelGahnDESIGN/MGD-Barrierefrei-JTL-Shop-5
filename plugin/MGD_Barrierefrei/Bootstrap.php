@@ -7,6 +7,8 @@ namespace Plugin\MGD_Barrierefrei;
 use JTL\Events\Dispatcher;
 use JTL\Plugin\Bootstrapper;
 use JTL\Shop;
+use JTL\Smarty\JTLSmarty;
+use Plugin\MGD_Barrierefrei\Presentation\CatalogTab;
 use Plugin\MGD_Barrierefrei\Presentation\FrontendDocumentIntegrator;
 
 /** Bindet ausschließlich lokale Assets an das von JTL erzeugte Dokument an. */
@@ -36,5 +38,15 @@ final class Bootstrap extends Bootstrapper
                 ],
             );
         });
+    }
+
+    // Tab "Weitere Plugins" im Admin (Smarty-Template), nur Admin, nie im Frontend
+    public function renderAdminMenuTab(string $tabName, int $menuID, JTLSmarty $smarty): string
+    {
+        if ($tabName !== CatalogTab::TAB_NAME) {
+            return parent::renderAdminMenuTab($tabName, $menuID, $smarty);
+        }
+
+        return (new CatalogTab())->render($smarty);
     }
 }

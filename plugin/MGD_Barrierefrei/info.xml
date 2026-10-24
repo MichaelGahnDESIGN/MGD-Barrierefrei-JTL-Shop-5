@@ -12,6 +12,7 @@
     <Install>
         <Adminmenu>
             <Customlink sort="1"><Name>Erklärung erzeugen</Name><Filename>statement.php</Filename></Customlink>
+            <Customlink sort="3"><Name>Weitere Plugins</Name><Filename>weitere-plugins.php</Filename></Customlink>
             <Settingslink sort="2">
                 <Name>Einstellungen</Name>
                 <Setting type="selectbox" initialValue="Y" sort="1" conf="Y">
