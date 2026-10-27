@@ -30,7 +30,7 @@ Im JTL-Backend unter **Plugins → MGD Barrierefrei → Weitere Plugins** siehst
 - Der Button **Liste aktualisieren** lädt sie neu (höchstens einmal pro Minute).
 - Es wird nichts automatisch installiert. Du lädst das ZIP herunter und lädst es selbst in der JTL-Pluginverwaltung hoch.
 - Ist der Katalog nicht erreichbar, steht dort nur ein Hinweis. Dein Shop ist nie betroffen.
-- Bilder und Symbole lädt dein Browser nur auf dieser Admin-Seite. Im Shop für Besucher gibt es keine Anfrage an theme.michael-gahn.de.
+- Der Katalog liefert derzeit keine Bilder. Falls er später welche liefert, lädt dein Browser sie nur auf dieser Admin-Seite (nur von theme.michael-gahn.de). Im Shop für Besucher gibt es keine Anfrage an theme.michael-gahn.de.
 
 Mehr dazu im [Wiki: Weitere Plugins](docs/wiki/Weitere-Plugins.md).
 

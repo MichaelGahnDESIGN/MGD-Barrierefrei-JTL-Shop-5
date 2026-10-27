@@ -42,6 +42,6 @@ Mach vorher eine Sicherung von Datenbank und Dateien.
 ## Datenschutz
 
 - Dein **Shop-Server** ruft die öffentliche Liste von `theme.michael-gahn.de` ab. Der Server dort sieht die IP-Adresse deines Shop-Servers. Es werden keine Shop-, Kunden- oder Zugangsdaten gesendet.
-- Die **Bilder** lädt dein **Browser**, und nur auf dieser Admin-Seite. Dort sieht der Server deine IP-Adresse.
+- Der Katalog liefert **derzeit keine Bilder**. Falls er später welche liefert, lädt dein **Browser** sie nur auf dieser Admin-Seite. Dann sieht der Server deine IP-Adresse.
 - **Besucher deines Shops** sind nicht betroffen. Im Shop wird nichts von theme.michael-gahn.de geladen.
 - Trage diese Verbindungen bei Bedarf in deine Datenschutzdokumentation ein.
