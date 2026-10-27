@@ -24,6 +24,8 @@ jobs:
         run: |
           find plugin -name '*.php' -print0 | xargs -0 -n1 php -l
           php -r 'foreach (array_slice($argv, 1) as $file) { if (@simplexml_load_file($file) === false) { fwrite(STDERR, "Ungültiges XML: $file\n"); exit(1); } }' plugin/MGD_Barrierefrei/info.xml
+      - name: Katalog-Test
+        run: php tests/catalog-check.php
       - name: JavaScript-Syntax
         run: node --check plugin/MGD_Barrierefrei/frontend/js/mgd-barrierefrei.js
       - name: Release-Paket
