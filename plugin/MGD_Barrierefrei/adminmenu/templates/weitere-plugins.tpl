@@ -68,5 +68,5 @@
         {if $mgdCatalog.updatedAt}<p class="mgd-cat-note">Stand der Liste: {$mgdCatalog.updatedAt|escape:'html'}</p>{/if}
     {/if}
 
-    <p class="mgd-cat-note">Datenschutz: Zum Laden der Liste verbindet sich dein Shop-Server mit theme.michael-gahn.de. Es werden keine Shop-, Kunden- oder Zugangsdaten gesendet, der Server sieht aber die IP-Adresse deines Shop-Servers. Die Bilder lädt dein Browser, nur auf dieser Admin-Seite, ebenfalls von theme.michael-gahn.de; dabei sieht der Server deine IP-Adresse. Besucher deines Shops sind nicht betroffen.</p>
+    <p class="mgd-cat-note">Datenschutz: Zum Laden der Liste verbindet sich dein Shop-Server mit theme.michael-gahn.de. Es werden keine Shop-, Kunden- oder Zugangsdaten gesendet, der Server sieht aber die IP-Adresse deines Shop-Servers. Der Katalog liefert derzeit keine Bilder. Falls er später welche liefert, lädt dein Browser sie nur auf dieser Admin-Seite von theme.michael-gahn.de; dann sieht der Server deine IP-Adresse. Besucher deines Shops sind nicht betroffen.</p>
 </section>

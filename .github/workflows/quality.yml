@@ -29,7 +29,7 @@ jobs:
       - name: JavaScript-Syntax
         run: node --check plugin/MGD_Barrierefrei/frontend/js/mgd-barrierefrei.js
       - name: Release-Paket
-        run: sh scripts/build-release.sh && unzip -t release/MGD_Barrierefrei-1.0.0.zip
+        run: sh scripts/build-release.sh && unzip -t release/MGD_Barrierefrei-*.zip
       - name: Geheimnisse prüfen
         uses: gitleaks/gitleaks-action@v2
         env:
