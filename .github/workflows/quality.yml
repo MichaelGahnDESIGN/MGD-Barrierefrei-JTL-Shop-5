@@ -31,7 +31,7 @@ jobs:
       - name: Release-Paket
         run: sh scripts/build-release.sh && unzip -t release/MGD_Barrierefrei-*.zip
       - name: Geheimnisse prüfen
-        uses: gitleaks/gitleaks-action@v2
+        uses: gitleaks/gitleaks-action@v3
         env:
           GITHUB_TOKEN: ${{ github.token }}
           GITLEAKS_ENABLE_COMMENTS: 'false'
