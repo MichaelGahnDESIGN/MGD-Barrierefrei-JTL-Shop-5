@@ -1,6 +1,11 @@
 # Changelog
 
-## Unreleased
+## Unveröffentlicht
+
+- **Neu:** Admin-Menüpunkt **Updates**. Dort kannst du prüfen, ob es eine neue Version gibt. Das Plugin lädt ein neues Paket nur auf deinen Klick herunter und prüft es (Signatur, Prüfsumme, Inhalt). Es installiert nie selbst. Die Installation machst du in der JTL-Pluginverwaltung.
+- Die Update-Prüfung ist standardmäßig aus. Es gibt keinen Hintergrund-Abruf. Vor dem Einschalten steht ein Datenschutz-Hinweis.
+- Noch ohne Wirkung: Der Update-Kanal ist noch nicht eingerichtet (Schlüssel fehlen, Blocker B1) und der Update-Server kennt das Produkt `mgd-barrierefrei` noch nicht (Blocker B2). Bis dahin meldet der Bereich: „Update-Kanal noch nicht eingerichtet“.
+- Neu im Plugin-Ordner: `UpdateClient/` (gemeinsamer MGD Update Client) und `update/root-keys.json` (öffentliche Schlüssel, derzeit leer).
 
 ## 1.1.0 – 2026-10-27
 
