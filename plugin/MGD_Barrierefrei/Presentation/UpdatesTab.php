@@ -16,6 +16,8 @@ final class UpdatesTab
     public const UPDATE_PRODUCT = 'mgd-barrierefrei';
     public const UPDATE_EDITION = 'free';
     public const PLUGIN_NAME = 'MGD Barrierefrei';
+    // Prüfsummen-Datei auf All-Inkl (einfacher Modus, solange keine Schlüssel da sind)
+    public const SIMPLE_URL = 'https://theme.michael-gahn.de/plugin-updates/mgd-barrierefrei.json';
 
     /** @var callable(string):void */
     private $sender;
@@ -47,6 +49,9 @@ final class UpdatesTab
                 static fn (): bool => Form::validateToken(),
                 static fn (): bool => self::canManage(),
                 Form::getTokenInput(),
+                null,
+                ['info.xml'],
+                self::SIMPLE_URL,
             );
         } catch (\Throwable) {
             return null;

@@ -4,7 +4,7 @@
 
 - **Neu:** Admin-Menüpunkt **Updates**. Dort kannst du prüfen, ob es eine neue Version gibt. Das Plugin lädt ein neues Paket nur auf deinen Klick herunter und prüft es (Signatur, Prüfsumme, Inhalt). Es installiert nie selbst. Die Installation machst du in der JTL-Pluginverwaltung.
 - Die Update-Prüfung ist standardmäßig aus. Es gibt keinen Hintergrund-Abruf. Vor dem Einschalten steht ein Datenschutz-Hinweis.
-- Noch ohne Wirkung: Der Update-Kanal ist noch nicht eingerichtet (Schlüssel fehlen, Blocker B1) und der Update-Server kennt das Produkt `mgd-barrierefrei` noch nicht (Blocker B2). Bis dahin meldet der Bereich: „Update-Kanal noch nicht eingerichtet“.
+- Der Update-Kanal arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de (`plugin-updates/mgd-barrierefrei.json`) nennt Version und SHA-256-Prüfsumme, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Das ist eine Prüfsumme, keine Signatur. Solange die Textdatei noch nicht auf dem Server liegt, meldet der Bereich nur einen Fehler beim Abruf. Sonst passiert nichts.
 - Neu im Plugin-Ordner: `UpdateClient/` (gemeinsamer MGD Update Client) und `update/root-keys.json` (öffentliche Schlüssel, derzeit leer).
 
 ## 1.1.0 – 2026-10-27

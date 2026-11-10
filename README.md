@@ -53,7 +53,7 @@ Wichtig zu wissen:
 - Es gibt keine Ein-Klick-Installation und keine automatische Aktivierung.
 - Der Server sieht die IP-Adresse deines Shop-Servers. Es werden keine Besucher-, Kunden- oder Bestelldaten gesendet.
 - Der Zustand und das geprüfte ZIP liegen im Ordner `templates_c/mgd_barrierefrei_update` (mit Zugriffssperre). Leerst du `templates_c`, geht dieser Stand verloren. Das ist harmlos.
-- ⚠️ Stand heute ist der Update-Kanal noch nicht eingerichtet (Blocker B1: Schlüssel fehlen) und der Update-Server kennt das Produkt `mgd-barrierefrei` noch nicht (Blocker B2). Bis das erledigt ist, zeigt der Bereich nur „Update-Kanal noch nicht eingerichtet“. Nichts wird abgerufen.
+- ⚠️ Der Update-Kanal arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de (`plugin-updates/mgd-barrierefrei.json`) nennt Version und SHA-256-Prüfsumme, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Das ist eine Prüfsumme, keine Signatur. Solange die Textdatei noch nicht auf dem Server liegt, meldet der Bereich nur einen Fehler beim Abruf. Sonst passiert nichts.
 - Technik: gemeinsamer MGD Update Client, Quelle im Pro-Repo `plugins/update-client/jtl5`, hier unter `plugin/MGD_Barrierefrei/UpdateClient`. Diesen Ordner nicht von Hand ändern, er wird neu erzeugt.
 
 ## Rechtlicher Hinweis

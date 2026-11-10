@@ -171,7 +171,10 @@ check(str_contains($r['html'], 'noch nicht eingerichtet'), 'echte Factory + leer
 
 // --- Signatur von Factory::page wie erwartet
 $params = array_map(static fn (ReflectionParameter $p): string => $p->getName(), (new ReflectionMethod(Factory::class, 'page'))->getParameters());
-check($params === ['rootKeysFile', 'dataDir', 'product', 'edition', 'pluginName', 'installedVersion', 'domain', 'shopVersion', 'csrfValid', 'canManage', 'csrfField', 'license', 'requiredFiles'], 'Factory::page: Parameter wie in UpdatesTab verwendet');
+check($params === ['rootKeysFile', 'dataDir', 'product', 'edition', 'pluginName', 'installedVersion', 'domain', 'shopVersion', 'csrfValid', 'canManage', 'csrfField', 'license', 'requiredFiles', 'simpleUrl'], 'Factory::page: Parameter wie in UpdatesTab verwendet');
+// einfacher Modus verdrahtet (Prüfsummen-Datei), nur statisch geprüft > kein Netz im Test
+check(UpdatesTab::SIMPLE_URL === 'https://theme.michael-gahn.de/plugin-updates/mgd-barrierefrei.json', 'einfacher Modus: Adresse der Prüfsummen-Datei');
+check(str_contains((string) file_get_contents($base . '/Presentation/UpdatesTab.php'), 'self::SIMPLE_URL,'), 'einfacher Modus: UpdatesTab gibt die Adresse weiter');
 check(UpdatesTab::UPDATE_PRODUCT === 'mgd-barrierefrei' && UpdatesTab::UPDATE_EDITION === 'free', 'Produktname/Edition als Konstante');
 
 // --- UpdatesTab: Template und Auslieferung
