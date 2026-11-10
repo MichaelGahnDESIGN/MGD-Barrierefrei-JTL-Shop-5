@@ -9,6 +9,7 @@ Kostenlose Bedienhilfe mit lokal speicherbaren Darstellungseinstellungen und ein
 - frei konfigurierbare Position, Beschriftung, Akzentfarbe und Zielseite
 - Admin-Menüpunkt **Erklärung erzeugen** erstellt aus den Einstellungen einen kopierbaren Textentwurf
 - Admin-Menüpunkt **Weitere Plugins** zeigt weitere kostenlose Plugins für JTL-Shop 5 (nur im Admin, nichts wird automatisch installiert)
+- Admin-Menüpunkt **Updates** prüft auf neue Versionen (nur auf Klick, installiert nie selbst)
 - sichtbarer, neuer Tab-Link auf [Michael-Gahn.de](https://michael-gahn.de) mit `rel="noopener noreferrer"`
 
 ## Installation
@@ -34,6 +35,27 @@ Im JTL-Backend unter **Plugins → MGD Barrierefrei → Weitere Plugins** siehst
 
 Mehr dazu im [Wiki: Weitere Plugins](docs/wiki/Weitere-Plugins.md).
 
+## Updates (Admin-Menüpunkt)
+
+Im JTL-Backend unter **Plugins → MGD Barrierefrei → Updates** prüfst du, ob es eine neue Version gibt.
+
+So geht es Schritt für Schritt:
+
+1. Öffne **Plugins → MGD Barrierefrei → Updates**.
+2. Klicke auf **Jetzt nach Updates suchen**. Erst dann verbindet sich dein Shop-Server mit theme.michael-gahn.de.
+3. Optional: Setze den Haken **Update-Prüfung einschalten** und speichere. Dann prüft das Plugin höchstens alle 12 Stunden, wenn du die Seite öffnest. Standard ist aus.
+4. Gibt es eine neue Version, setze den Haken zur Bestätigung und klicke **Paket herunterladen und prüfen**.
+5. Das Plugin prüft Signatur, Prüfsumme und Inhalt des ZIPs. Es **packt nichts aus** und **ändert keine Plugin-Dateien**.
+6. Klicke **Geprüftes Paket als ZIP speichern**, mache eine Datensicherung und lade das ZIP in der **JTL-Pluginverwaltung** hoch. JTL macht das Update.
+
+Wichtig zu wissen:
+
+- Es gibt keine Ein-Klick-Installation und keine automatische Aktivierung.
+- Der Server sieht die IP-Adresse deines Shop-Servers. Es werden keine Besucher-, Kunden- oder Bestelldaten gesendet.
+- Der Zustand und das geprüfte ZIP liegen im Ordner `templates_c/mgd_barrierefrei_update` (mit Zugriffssperre). Leerst du `templates_c`, geht dieser Stand verloren. Das ist harmlos.
+- ⚠️ Der Update-Kanal arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de (`plugin-updates/mgd-barrierefrei.json`) nennt Version und SHA-256-Prüfsumme, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Das ist eine Prüfsumme, keine Signatur.
+- Technik: gemeinsamer MGD Update Client, Quelle im Pro-Repo `plugins/update-client/jtl5`, hier unter `plugin/MGD_Barrierefrei/UpdateClient`. Diesen Ordner nicht von Hand ändern, er wird neu erzeugt.
+
 ## Rechtlicher Hinweis
 
 Der erzeugte Text ist ein anpassbarer Entwurf, keine Rechtsberatung und keine Konformitätszusage. Prüfe Geltungsbereich, Kontaktangaben, tatsächlichen Stand und bekannte Barrieren vor jeder Veröffentlichung.
@@ -43,6 +65,7 @@ Der erzeugte Text ist ein anpassbarer Entwurf, keine Rechtsberatung und keine Ko
 ```sh
 find plugin -name '*.php' -print0 | xargs -0 -n1 php -l
 php tests/catalog-check.php
+php tests/update-smoke.php
 node --check plugin/MGD_Barrierefrei/frontend/js/mgd-barrierefrei.js
 sh scripts/build-release.sh
 ```
