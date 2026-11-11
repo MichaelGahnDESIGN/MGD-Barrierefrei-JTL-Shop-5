@@ -4,7 +4,8 @@ Kostenlose Bedienhilfe mit lokal speicherbaren Darstellungseinstellungen und ein
 
 ## Funktionen
 
-- Kontrast, Graustufen, sichtbarer Fokus, Schriftgröße und reduzierte Bewegung
+- neue Bedienhilfe: rundes Symbol, Text nur bei Mauskontakt, DE/EN und Hell/Dunkel für Besucher, Standard im Backend wählbar
+- 10 Funktionen mit Symbol und (?)-Erklärung: Schriftgröße, hoher Kontrast, Graustufen, mehr Abstand, lesbare Schrift, Links hervorheben, Fokus sichtbar, Bewegung stoppen, großer Mauszeiger, Lese-Lineal
 - Einstellungen liegen ausschließlich als `localStorage` im Browser des Besuchers
 - frei konfigurierbare Position, Beschriftung, Akzentfarbe und Zielseite
 - Admin-Menüpunkt **Erklärung erzeugen** erstellt aus den Einstellungen einen kopierbaren Textentwurf
@@ -67,6 +68,7 @@ find plugin -name '*.php' -print0 | xargs -0 -n1 php -l
 php tests/catalog-check.php
 php tests/update-smoke.php
 node --check plugin/MGD_Barrierefrei/frontend/js/mgd-barrierefrei.js
+php tests/frontend-config.php
 sh scripts/build-release.sh
 ```
 
@@ -74,6 +76,7 @@ sh scripts/build-release.sh
 
 - [Start](docs/wiki/Home.md)
 - [Einrichten](docs/wiki/Einrichten.md)
+- [Bedienhilfe](docs/wiki/Bedienhilfe.md)
 - [Erklärung prüfen](docs/wiki/Erklaerung-pruefen.md)
 - [Weitere Plugins](docs/wiki/Weitere-Plugins.md)
 - [Datenschutz und Sicherheit](docs/wiki/Datenschutz-und-Sicherheit.md)

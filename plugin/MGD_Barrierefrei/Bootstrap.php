@@ -33,8 +33,12 @@ final class Bootstrap extends Bootstrapper
                 [
                     'position' => (string) $config->getValue('position'),
                     'label' => (string) $config->getValue('button_label'),
+                    'labelEn' => (string) $config->getValue('button_label_en'),
                     'accent' => (string) $config->getValue('accent_color'),
                     'statementUrl' => (string) $config->getValue('statement_url'),
+                    'lang' => (string) $config->getValue('default_lang'),
+                    'theme' => (string) $config->getValue('default_theme'),
+                    'offset' => (string) $config->getValue('offset'),
                 ],
             );
         });

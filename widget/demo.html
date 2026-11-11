@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MGD Barrierefrei Widget Test</title>
+<style>
+/* Builder-Stress-Test: px Fonts, harte Button-Styles, fixed Header, Animation */
+body{margin:0;font-family:Georgia,serif;font-size:17px;color:#333;background:#faf7f2}
+button{all:unset;background:#ff00aa!important;color:yellow!important;padding:30px!important;font-size:40px!important}
+div{box-sizing:content-box}
+* { line-height: 22px }
+header{position:fixed;top:0;left:0;right:0;height:60px;background:#222;color:#fff;display:flex;align-items:center;padding:0 20px;font-size:20px;z-index:99999}
+main{padding:90px 24px 200px;max-width:900px;margin:auto}
+.et_pb_text_inner h1{font-size:46px;font-family:'Comic Sans MS',cursive}
+.elementor-heading-title{font-size:28px;color:#6b21a8}
+.spin{width:60px;height:60px;background:#e11d48;animation:spin 2s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.et-pb-icon{font-family:monospace;font-size:24px}
+a{color:#0b6}
+</style>
+</head>
+<body>
+<header>Fixierter Header (z-index 99999)</header>
+<main>
+<div class="et_pb_text_inner"><h1>Divi-artige Überschrift 46px</h1></div>
+<h2 class="elementor-heading-title">Elementor-artige Überschrift 28px</h2>
+<p>Absatz mit 17px Schrift und <a href="#x">einem Link</a>. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+<p><span class="et-pb-icon">&#x24;</span> Icon-Schrift darf nicht ersetzt werden.</p>
+<div class="spin"></div>
+<p><button type="button">Theme-Button mit !important</button></p>
+<p><input type="text" placeholder="Eingabefeld"></p>
+<img alt="Testbild" width="200" height="120" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120'%3E%3Crect width='200' height='120' fill='%2322c55e'/%3E%3C/svg%3E">
+<div id="ticker">0</div>
+<video id="vid" muted loop playsinline width="10" height="10"></video>
+</main>
+<script type="application/json" id="mgd-barrierefrei-config">{"position":"right","accent":"#c8161a","lang":"auto","theme":"auto","labels":{"de":"","en":""},"statementUrl":"/barrierefreiheit"}</script>
+<script src="mgd-barrierefrei-widget.js" defer></script>
+</body>
+</html>
