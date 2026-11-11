@@ -45,7 +45,7 @@ So geht es Schritt für Schritt:
 2. Klicke auf **Jetzt nach Updates suchen**. Erst dann verbindet sich dein Shop-Server mit theme.michael-gahn.de.
 3. Optional: Setze den Haken **Update-Prüfung einschalten** und speichere. Dann prüft das Plugin höchstens alle 12 Stunden, wenn du die Seite öffnest. Standard ist aus.
 4. Gibt es eine neue Version, setze den Haken zur Bestätigung und klicke **Paket herunterladen und prüfen**.
-5. Das Plugin prüft Signatur, Prüfsumme und Inhalt des ZIPs. Es **packt nichts aus** und **ändert keine Plugin-Dateien**.
+5. Das Plugin prüft Prüfsumme und Inhalt des ZIPs. Es **packt nichts aus** und **ändert keine Plugin-Dateien**.
 6. Klicke **Geprüftes Paket als ZIP speichern**, mache eine Datensicherung und lade das ZIP in der **JTL-Pluginverwaltung** hoch. JTL macht das Update.
 
 Wichtig zu wissen:

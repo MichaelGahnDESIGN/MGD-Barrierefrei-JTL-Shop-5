@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2 – 2026-11-11
+
+- Doku korrigiert: Der Update-Bereich prüft im einfachen Modus die **Prüfsumme** (SHA-256) und den Inhalt des ZIPs. Eine Signatur gibt es noch nicht. README und Wiki sagen das jetzt richtig.
+- Sonst keine Änderungen am Plugin. Nach dem Update bitte den Systemcache im Backend leeren.
+
 ## 1.1.1 – 2026-11-10
 
 - **Neu:** Admin-Menüpunkt **Updates**. Dort kannst du prüfen, ob es eine neue Version gibt. Das Plugin lädt ein neues Paket nur auf deinen Klick herunter und prüft es (Signatur, Prüfsumme, Inhalt). Es installiert nie selbst. Die Installation machst du in der JTL-Pluginverwaltung.
