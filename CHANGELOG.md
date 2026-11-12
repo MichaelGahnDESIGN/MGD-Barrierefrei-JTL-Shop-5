@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1 – 2026-11-12
+
+- **Fix:** Nach dem Download im Bereich **Updates** stand „geprüft (Signatur, SHA-256, Inhalt)“. Im einfachen Modus gibt es aber keine Signatur. Jetzt steht dort richtig „geprüft (SHA-256-Prüfsumme, Inhalt)“.
+- Update-Client neu erzeugt. Sonst keine Änderungen.
+
 ## 1.2.0 – 2026-11-11
 
 - **Neu: Bedienhilfe komplett überarbeitet.** Neues Symbol (Person im Kreis) statt Rollstuhl. Der Text daneben erscheint nur, wenn die Maus darüber fährt oder die Tastatur den Button erreicht.

@@ -29,7 +29,7 @@ jobs:
       - name: Update-Bereich-Test
         run: php tests/update-smoke.php
       - name: JavaScript-Syntax
-        run: node --check plugin/MGD_Barrierefrei/frontend/js/mgd-barrierefrei.js && php tests/frontend-config.php
+        run: node --check plugin/MGD_Barrierefrei/frontend/js/mgd-barrierefrei.js && php tests/frontend-config.php && php tests/update-text.php
       - name: Release-Paket
         run: sh scripts/build-release.sh && unzip -t release/MGD_Barrierefrei-*.zip
       - name: Geheimnisse prüfen
