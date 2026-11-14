@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0 – 2026-11-14
+
+- Gemeinsame Versionsnummer **1.4.0** für alle Produkte von Michael Gahn DESIGN. So sieht man auf einen Blick, welche Fassungen zusammengehören.
+- Keine Änderung an den Funktionen.
+- Nach dem Update bitte den Systemcache im Backend leeren.
+
 ## 1.2.1 – 2026-11-12
 
 - **Fix:** Nach dem Download im Bereich **Updates** stand „geprüft (Signatur, SHA-256, Inhalt)“. Im einfachen Modus gibt es aber keine Signatur. Jetzt steht dort richtig „geprüft (SHA-256-Prüfsumme, Inhalt)“.

@@ -9,5 +9,6 @@ output="release/MGD_Barrierefrei-${version}.zip"
 stage=$(mktemp -d)
 cp -R plugin/MGD_Barrierefrei "$stage/MGD_Barrierefrei"
 (cd "$stage" && zip -qr "$project/$output" MGD_Barrierefrei -x '*/.DS_Store')
-shasum -a 256 "$output" > "${output}.sha256"
+# nur Dateiname in die .sha256, sonst klappt shasum -c im Download-Ordner nicht
+(cd "$(dirname "$output")" && shasum -a 256 "$(basename "$output")" > "$(basename "$output").sha256")
 echo "Paket erstellt: $output"
