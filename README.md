@@ -57,6 +57,16 @@ Wichtig zu wissen:
 - ⚠️ Der Update-Kanal arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de (`plugin-updates/mgd-barrierefrei.json`) nennt Version und SHA-256-Prüfsumme, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Das ist eine Prüfsumme, keine Signatur.
 - Technik: gemeinsamer MGD Update Client, Quelle im Pro-Repo `plugins/update-client/jtl5`, hier unter `plugin/MGD_Barrierefrei/UpdateClient`. Diesen Ordner nicht von Hand ändern, er wird neu erzeugt.
 
+## Anmeldung der Installation (ab 1.5.0)
+
+Meldet sich höchstens einmal am Tag bei theme.michael-gahn.de (Plugin, Version, Shopsystem, Domain, zufällige ID). Abschaltbar in den Einstellungen.
+
+1. Die Meldung ist ab Werk eingeschaltet. Sie läuft auch, wenn die Update-Prüfung aus ist.
+2. Gemeldet wird beim Installieren, Aktivieren und Updaten und danach höchstens einmal am Tag beim Öffnen des Backends. Nie im Shop-Frontend.
+3. Abschalten: **Plugins → MGD Barrierefrei → Updates** öffnen, den Haken **Installation bei Michael Gahn DESIGN melden** entfernen und speichern. Dann wird der Eintrag auf der Plattform gelöscht.
+4. Das Plugin funktioniert immer voll, auch ohne Meldung oder wenn die Plattform nicht erreichbar ist.
+- Technik: gemeinsamer MGD Install-Client, Quelle im Pro-Repo `plugins/install-client`, hier unter `plugin/MGD_Barrierefrei/Install`. Diesen Ordner nicht von Hand ändern, er wird neu erzeugt.
+
 ## Rechtlicher Hinweis
 
 Der erzeugte Text ist ein anpassbarer Entwurf, keine Rechtsberatung und keine Konformitätszusage. Prüfe Geltungsbereich, Kontaktangaben, tatsächlichen Stand und bekannte Barrieren vor jeder Veröffentlichung.

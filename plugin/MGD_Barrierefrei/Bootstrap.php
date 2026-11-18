@@ -10,6 +10,7 @@ use JTL\Shop;
 use JTL\Smarty\JTLSmarty;
 use Plugin\MGD_Barrierefrei\Presentation\CatalogTab;
 use Plugin\MGD_Barrierefrei\Presentation\FrontendDocumentIntegrator;
+use Plugin\MGD_Barrierefrei\Presentation\InstallReport;
 
 /** Bindet ausschließlich lokale Assets an das von JTL erzeugte Dokument an. */
 final class Bootstrap extends Bootstrapper
@@ -18,6 +19,11 @@ final class Bootstrap extends Bootstrapper
     {
         parent::boot($dispatcher);
         if (!Shop::isFrontend()) {
+            // Aktiv-Meldung max 1x am Tag, nur im Admin
+            if (PHP_SAPI !== 'cli') {
+                InstallReport::ping($this->getPlugin());
+            }
+
             return;
         }
 
@@ -42,6 +48,25 @@ final class Bootstrap extends Bootstrapper
                 ],
             );
         });
+    }
+
+    // Free-Lizenz anmelden bei Installieren/Aktivieren/Update
+    public function installed()
+    {
+        parent::installed();
+        InstallReport::ping($this->getPlugin(), true);
+    }
+
+    public function enabled()
+    {
+        parent::enabled();
+        InstallReport::ping($this->getPlugin(), true);
+    }
+
+    public function updated($oldVersion, $newVersion)
+    {
+        parent::updated($oldVersion, $newVersion);
+        InstallReport::ping($this->getPlugin(), true, is_string($newVersion) ? $newVersion : null);
     }
 
     // Tab "Weitere Plugins" im Admin (Smarty-Template), nur Admin, nie im Frontend

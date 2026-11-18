@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jtlshopplugin>
     <Name>MGD Barrierefrei</Name>
-    <Description>Kostenlose Bedienhilfe und konfigurierbare Erklärung zur Barrierefreiheit für JTL-Shop 5.</Description>
+    <Description>Kostenlose Bedienhilfe und konfigurierbare Erklärung zur Barrierefreiheit für JTL-Shop 5. Meldet sich höchstens einmal am Tag bei theme.michael-gahn.de (Plugin, Version, Shopsystem, Domain, zufällige ID). Abschaltbar in den Einstellungen.</Description>
     <Author>Michael Gahn DESIGN</Author>
     <URL>https://michael-gahn.de</URL>
     <XMLVersion>100</XMLVersion>
     <MinShopVersion>5.7.2</MinShopVersion>
     <PluginID>MGD_Barrierefrei</PluginID>
     <CreateDate>2026-10-23</CreateDate>
-    <Version>1.4.0</Version>
+    <Version>1.5.0</Version>
     <Install>
         <Adminmenu>
             <Customlink sort="1"><Name>Erklärung erzeugen</Name><Filename>statement.php</Filename></Customlink>

@@ -52,6 +52,7 @@ final class UpdatesTab
                 null,
                 ['info.xml'],
                 self::SIMPLE_URL,
+                InstallReport::reporting($plugin),
             );
         } catch (\Throwable) {
             return null;

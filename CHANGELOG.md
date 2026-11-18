@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.0 – 2026-11-18
+
+- **Neu: Anmeldung der Installation (Free-Lizenz).** Das Plugin meldet sich einmal bei theme.michael-gahn.de an und danach höchstens einmal am Tag. Gesendet werden nur: Plugin-Name, Version, Shopsystem, die Domain deines Shops und eine zufällige Installations-ID. Keine Besucher-, Kunden- oder Bestelldaten.
+- Gemeldet wird beim Installieren, Aktivieren und Updaten und danach höchstens einmal am Tag beim Öffnen des Backends. Nie im Shop-Frontend.
+- Ab Werk eingeschaltet. Abschalten kannst du die Meldung jederzeit unter **Plugins › MGD Barrierefrei › Updates**. Dann wird der Eintrag auf der Plattform gelöscht. Das Plugin funktioniert genauso weiter, auch wenn die Plattform nicht erreichbar ist.
+- Update-Client neu erzeugt.
+- Nach dem Update bitte den Systemcache im Backend leeren.
+
 ## 1.4.0 – 2026-11-14
 
 - Gemeinsame Versionsnummer **1.4.0** für alle Produkte von Michael Gahn DESIGN. So sieht man auf einen Blick, welche Fassungen zusammengehören.
