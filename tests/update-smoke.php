@@ -244,8 +244,10 @@ check(is_file($d . '/index.html'), 'Datenordner: index.html');
 check(UpdateDataDir::prepare($baseDir . '/gibt-es-nicht') === null, 'Datenordner: Basis fehlt > null');
 check(UpdateDataDir::forShop() === null, 'Datenordner: ohne JTL-Konstanten > null');
 
-// --- Admin-Datei: Guard ohne JTL
-check(str_contains((string) file_get_contents($base . '/adminmenu/updates.php'), 'instanceof PluginInterface'), 'updates.php: Guard gegen direkten Aufruf');
+// --- Admin-Dateien: Guard ohne JTL (ab 1.6.0 Tabs vom Baukasten, updates.php raus)
+foreach (['uebersicht.php', 'weitere-plugins.php'] as $f) {
+    check(str_contains((string) file_get_contents($base . '/adminmenu/' . $f), 'instanceof PluginInterface'), $f . ': Guard gegen direkten Aufruf');
+}
 
 foreach ([$dir, $dirB, $dirC, $dirD, $baseDir] as $x) {
     rmtree($x);

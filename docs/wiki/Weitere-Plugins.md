@@ -1,5 +1,7 @@
 # Weitere Plugins
 
+> Ab Version 1.6.0 hat „Weitere Plugins“ ein neues Aussehen mit Bildern, Suche, Preis-Filter und Kategorien. Den Update-Bereich findest du dann im Tab „Übersicht“. Der Text unten beschreibt die Ansicht bis 1.5.0.
+
 Im JTL-Backend siehst du weitere kostenlose Plugins von Michael Gahn DESIGN, die zu deinem Shop passen können.
 
 ## So öffnest du die Seite

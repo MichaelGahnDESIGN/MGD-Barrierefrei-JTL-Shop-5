@@ -7,10 +7,8 @@ namespace Plugin\MGD_Barrierefrei;
 use JTL\Events\Dispatcher;
 use JTL\Plugin\Bootstrapper;
 use JTL\Shop;
-use JTL\Smarty\JTLSmarty;
-use Plugin\MGD_Barrierefrei\Presentation\CatalogTab;
+use Plugin\MGD_Barrierefrei\Kit\Platform\Jtl\Setup;
 use Plugin\MGD_Barrierefrei\Presentation\FrontendDocumentIntegrator;
-use Plugin\MGD_Barrierefrei\Presentation\InstallReport;
 
 /** Bindet ausschließlich lokale Assets an das von JTL erzeugte Dokument an. */
 final class Bootstrap extends Bootstrapper
@@ -19,9 +17,9 @@ final class Bootstrap extends Bootstrapper
     {
         parent::boot($dispatcher);
         if (!Shop::isFrontend()) {
-            // Aktiv-Meldung max 1x am Tag, nur im Admin
+            // Aktiv-Meldung max 1x am Tag, nur im Admin - jetzt übern Baukasten
             if (PHP_SAPI !== 'cli') {
-                InstallReport::ping($this->getPlugin());
+                Setup::forShop($this->getPlugin())?->ping();
             }
 
             return;
@@ -50,32 +48,29 @@ final class Bootstrap extends Bootstrapper
         });
     }
 
-    // Free-Lizenz anmelden bei Installieren/Aktivieren/Update
+    // Free-Lizenz anmelden bei Installieren/Aktivieren/Update (Baukasten)
     public function installed()
     {
         parent::installed();
-        InstallReport::ping($this->getPlugin(), true);
+        Setup::forShop($this->getPlugin())?->ping(true);
     }
 
     public function enabled()
     {
         parent::enabled();
-        InstallReport::ping($this->getPlugin(), true);
+        Setup::forShop($this->getPlugin())?->ping(true);
     }
 
     public function updated($oldVersion, $newVersion)
     {
         parent::updated($oldVersion, $newVersion);
-        InstallReport::ping($this->getPlugin(), true, is_string($newVersion) ? $newVersion : null);
+        Setup::forShop($this->getPlugin())?->ping(true);
     }
 
-    // Tab "Weitere Plugins" im Admin (Smarty-Template), nur Admin, nie im Frontend
-    public function renderAdminMenuTab(string $tabName, int $menuID, JTLSmarty $smarty): string
+    // Deinstallieren: bei theme.michael-gahn.de abmelden, Datenordner nur bei "Daten löschen" weg
+    public function uninstalled(bool $deleteData = true)
     {
-        if ($tabName !== CatalogTab::TAB_NAME) {
-            return parent::renderAdminMenuTab($tabName, $menuID, $smarty);
-        }
-
-        return (new CatalogTab())->render($smarty);
+        Setup::forShop($this->getPlugin())?->uninstall($deleteData);
+        parent::uninstalled($deleteData);
     }
 }

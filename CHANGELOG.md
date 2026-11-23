@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.6.0 – 2026-11-24
+
+Diese Version ist eine Brückenversion. Deine Einstellungen und die Anmeldung der Installation bleiben, wie sie sind.
+
+- **Neuer Tab „Übersicht“** unter **Plugins › MGD Barrierefrei**: Info, Updates, weitere Plugins und der Schalter „Installation melden“ auf einer Seite. Der bisherige Tab „Updates“ steckt jetzt in der Übersicht.
+- **Neue Ansicht „Weitere Plugins“** im Design der „MGD Plugin-Kollektion“: mit Bildern, Kategorien, Suche, Preis-Filter und einem Fenster „Details“. Die Bilder holt dein Shop-Server selbst von theme.michael-gahn.de. Der Browser lädt keine Bilder von fremden Seiten.
+- **Updates** laufen wie bisher: nur auf Klick prüfen, Paket prüfen lassen und selbst in der JTL-Pluginverwaltung hochladen. Es gibt keine stillen Updates.
+- **Löschen:** Deinstallierst du das Plugin, wird die Installation bei theme.michael-gahn.de abgemeldet.
+- Technik: gemeinsamer Plugin-Baukasten aus dem Pro-Repo unter `plugin/MGD_Barrierefrei/Kit`. Die alten Teile (`UpdateClient`, `Install`, alte Liste) sind nicht mehr angemeldet und fliegen in der Endversion raus.
+
 ## 1.5.0 – 2026-11-18
 
 - **Neu: Anmeldung der Installation (Free-Lizenz).** Das Plugin meldet sich einmal bei theme.michael-gahn.de an und danach höchstens einmal am Tag. Gesendet werden nur: Plugin-Name, Version, Shopsystem, die Domain deines Shops und eine zufällige Installations-ID. Keine Besucher-, Kunden- oder Bestelldaten.

@@ -9,8 +9,8 @@ Kostenlose Bedienhilfe mit lokal speicherbaren Darstellungseinstellungen und ein
 - Einstellungen liegen ausschließlich als `localStorage` im Browser des Besuchers
 - frei konfigurierbare Position, Beschriftung, Akzentfarbe und Zielseite
 - Admin-Menüpunkt **Erklärung erzeugen** erstellt aus den Einstellungen einen kopierbaren Textentwurf
-- Admin-Menüpunkt **Weitere Plugins** zeigt weitere kostenlose Plugins für JTL-Shop 5 (nur im Admin, nichts wird automatisch installiert)
-- Admin-Menüpunkt **Updates** prüft auf neue Versionen (nur auf Klick, installiert nie selbst)
+- Admin-Tab **Übersicht** (ab 1.6.0) mit Info, Updates (nur auf Klick, installiert nie selbst), weiteren Plugins und dem Schalter „Installation melden“
+- Admin-Tab **Weitere Plugins** mit weiteren Plugins von Michael Gahn DESIGN (nur im Admin, nichts wird automatisch installiert)
 - sichtbarer, neuer Tab-Link auf [Michael-Gahn.de](https://michael-gahn.de) mit `rel="noopener noreferrer"`
 
 ## Installation
@@ -24,25 +24,25 @@ Kostenlose Bedienhilfe mit lokal speicherbaren Darstellungseinstellungen und ein
 
 Das Release-ZIP enthält die fertigen CSS- und JavaScript-Dateien; ein manueller Build im JTL-Backend ist nicht erforderlich. JTL-Shop installiert Aktualisierungen weiterhin bewusst aus einem verifizierten ZIP über die Pluginverwaltung. Vor jedem Update Datenbank und Plugin-Dateien sichern.
 
-## Weitere Plugins (Admin-Menüpunkt)
+## Weitere Plugins (ab 1.6.0)
 
-Im JTL-Backend unter **Plugins → MGD Barrierefrei → Weitere Plugins** siehst du weitere kostenlose Plugins von Michael Gahn DESIGN.
+Im JTL-Backend unter **Plugins → MGD Barrierefrei → Weitere Plugins** (und in der Übersicht) siehst du weitere Plugins von Michael Gahn DESIGN.
 
-- Die Liste kommt von `https://theme.michael-gahn.de/api/catalog/plugins.json` und wird 6 Stunden zwischengespeichert (Datei im Ordner `templates_c`).
-- Der Button **Liste aktualisieren** lädt sie neu (höchstens einmal pro Minute).
-- Es wird nichts automatisch installiert. Du lädst das ZIP herunter und lädst es selbst in der JTL-Pluginverwaltung hoch.
-- Ist der Katalog nicht erreichbar, steht dort nur ein Hinweis. Dein Shop ist nie betroffen.
-- Der Katalog liefert derzeit keine Bilder. Falls er später welche liefert, lädt dein Browser sie nur auf dieser Admin-Seite (nur von theme.michael-gahn.de). Im Shop für Besucher gibt es keine Anfrage an theme.michael-gahn.de.
+- Die Liste kommt von theme.michael-gahn.de und wird 15 Minuten zwischengespeichert. Antwortet der Server nicht, siehst du die letzte gute Liste.
+- Du kannst suchen, nach Preis filtern und nach Kategorie wählen. **Details** öffnet ein kleines Fenster, **Ansehen** die Plugin-Seite.
+- Die Bilder holt dein Shop-Server selbst und legt sie in `mediafiles/mgd-kit-catalog/` ab. Dein Browser lädt keine Bilder von fremden Seiten.
+- Es wird nichts automatisch installiert. Installiert wird von Hand in der JTL-Pluginverwaltung.
+- Im Shop für Besucher gibt es keine Anfrage an theme.michael-gahn.de.
 
 Mehr dazu im [Wiki: Weitere Plugins](docs/wiki/Weitere-Plugins.md).
 
-## Updates (Admin-Menüpunkt)
+## Updates
 
-Im JTL-Backend unter **Plugins → MGD Barrierefrei → Updates** prüfst du, ob es eine neue Version gibt.
+Ab 1.6.0 steht der Update-Bereich im Tab **Übersicht**. Dort prüfst du, ob es eine neue Version gibt.
 
 So geht es Schritt für Schritt:
 
-1. Öffne **Plugins → MGD Barrierefrei → Updates**.
+1. Öffne **Plugins → MGD Barrierefrei → Übersicht**.
 2. Klicke auf **Jetzt nach Updates suchen**. Erst dann verbindet sich dein Shop-Server mit theme.michael-gahn.de.
 3. Optional: Setze den Haken **Update-Prüfung einschalten** und speichere. Dann prüft das Plugin höchstens alle 12 Stunden, wenn du die Seite öffnest. Standard ist aus.
 4. Gibt es eine neue Version, setze den Haken zur Bestätigung und klicke **Paket herunterladen und prüfen**.
@@ -55,7 +55,7 @@ Wichtig zu wissen:
 - Der Server sieht die IP-Adresse deines Shop-Servers. Es werden keine Besucher-, Kunden- oder Bestelldaten gesendet.
 - Der Zustand und das geprüfte ZIP liegen im Ordner `templates_c/mgd_barrierefrei_update` (mit Zugriffssperre). Leerst du `templates_c`, geht dieser Stand verloren. Das ist harmlos.
 - ⚠️ Der Update-Kanal arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de (`plugin-updates/mgd-barrierefrei.json`) nennt Version und SHA-256-Prüfsumme, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Das ist eine Prüfsumme, keine Signatur.
-- Technik: gemeinsamer MGD Update Client, Quelle im Pro-Repo `plugins/update-client/jtl5`, hier unter `plugin/MGD_Barrierefrei/UpdateClient`. Diesen Ordner nicht von Hand ändern, er wird neu erzeugt.
+- Technik (ab 1.6.0): gemeinsamer Plugin-Baukasten aus dem Pro-Repo (`php bin/build-plugin-kit.php plugin/MGD_Barrierefrei --platform=jtl5 --namespace='Plugin\MGD_Barrierefrei\Kit' --product=mgd-barrierefrei --plugin-id=MGD_Barrierefrei --name='MGD Barrierefrei' --catalog-slug=plugin-barrierefrei-jtl --repo=MGD-Barrierefrei-JTL-Shop-5`), hier unter `plugin/MGD_Barrierefrei/Kit`. Diesen Ordner nicht von Hand ändern, er wird neu erzeugt. Er enthält auch den Update-Client.
 
 ## Anmeldung der Installation (ab 1.5.0)
 
@@ -63,9 +63,10 @@ Meldet sich höchstens einmal am Tag bei theme.michael-gahn.de (Plugin, Version,
 
 1. Die Meldung ist ab Werk eingeschaltet. Sie läuft auch, wenn die Update-Prüfung aus ist.
 2. Gemeldet wird beim Installieren, Aktivieren und Updaten und danach höchstens einmal am Tag beim Öffnen des Backends. Nie im Shop-Frontend.
-3. Abschalten: **Plugins → MGD Barrierefrei → Updates** öffnen, den Haken **Installation bei Michael Gahn DESIGN melden** entfernen und speichern. Dann wird der Eintrag auf der Plattform gelöscht.
-4. Das Plugin funktioniert immer voll, auch ohne Meldung oder wenn die Plattform nicht erreichbar ist.
-- Technik: gemeinsamer MGD Install-Client, Quelle im Pro-Repo `plugins/install-client`, hier unter `plugin/MGD_Barrierefrei/Install`. Diesen Ordner nicht von Hand ändern, er wird neu erzeugt.
+3. Abschalten: **Plugins → MGD Barrierefrei → Übersicht** öffnen (bis 1.5.0: Tab „Updates“), den Haken **Installation bei Michael Gahn DESIGN melden** entfernen und speichern. Dann wird der Eintrag auf der Plattform gelöscht.
+4. Deinstallierst du das Plugin (ab 1.6.0), wird der Eintrag auf der Plattform ebenfalls gelöscht.
+5. Das Plugin funktioniert immer voll, auch ohne Meldung oder wenn die Plattform nicht erreichbar ist.
+- Technik: ab 1.6.0 kommt der Install-Client aus dem Baukasten (`plugin/MGD_Barrierefrei/Kit/Install`). Die bisherige Installations-ID wird beim ersten Start übernommen.
 
 ## Rechtlicher Hinweis
 
