@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.1.1] - 2026-11-25
+
+- Aktueller Baukasten, einheitliche Version.
+
 ## 1.6.0 – 2026-11-24
 
 Diese Version ist eine Brückenversion. Deine Einstellungen und die Anmeldung der Installation bleiben, wie sie sind.

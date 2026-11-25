@@ -22,10 +22,10 @@ foreach (['uebersicht.php' => 'Übersicht', 'weitere-plugins.php' => 'Weitere Pl
     $c = $read('adminmenu/' . $f);
     $check(str_contains($c, "Setup::renderTab(Setup::forShop(\$oPlugin), '$tab')") && str_contains($c, "http_response_code(403)"), "adminmenu/$f nutzt den Baukasten");
 }
-$check(!str_contains($boot, 'CatalogTab') && !str_contains($boot, 'InstallReport::') && !str_contains($boot, 'renderAdminMenuTab'), 'alte Liste + alter Melder nicht mehr angemeldet');
-$check(substr_count($boot, 'Setup::forShop($this->getPlugin())?->ping(true)') === 3 && str_contains($boot, 'Setup::forShop($this->getPlugin())?->ping();'), 'Meldung bei Install/Aktivieren/Update + 1x am Tag im Admin');
+$check(!str_contains($boot, 'CatalogTab') && !str_contains($boot, 'InstallReport::'), 'alte Liste + alter Melder nicht mehr angemeldet');
+$check(substr_count($boot, '?->ping(true)') === 3 && str_contains($boot, 'Setup::forShop($this->getPlugin())?->ping();') && str_contains($boot, 'Setup::isBackend()') && str_contains($boot, "['version' => \$newVersion]"), 'Meldung bei Install/Aktivieren/Update + 1x am Tag im Admin');
 $check(str_contains($boot, 'Setup::forShop($this->getPlugin())?->uninstall($deleteData);'), 'Abmelden beim Deinstallieren');
-$check((bool) preg_match('~<Version>1\.6\.\d+</Version>~', $info), 'Version 1.6.x');
+$check((bool) preg_match('~<Version>2\.1\.1</Version>~', $info), 'Version 2.1.1');
 $left = 0;
 foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($root . '/Kit', FilesystemIterator::SKIP_DOTS)) as $f) {
     $left += str_contains((string) file_get_contents((string) $f), '{{KIT_') ? 1 : 0;

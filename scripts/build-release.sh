@@ -8,6 +8,10 @@ mkdir -p release
 output="release/MGD_Barrierefrei-${version}.zip"
 stage=$(mktemp -d)
 cp -R plugin/MGD_Barrierefrei "$stage/MGD_Barrierefrei"
+# Rechte 644/755 (Netzlaufwerk liefert 700), keine Punkt-Dateien
+find "$stage" \( -name '.DS_Store' -o -name '.smbdelete*' \) -delete
+find "$stage/MGD_Barrierefrei" -type d -exec chmod 755 {} +
+find "$stage/MGD_Barrierefrei" -type f -exec chmod 644 {} +
 (cd "$stage" && zip -qr "$project/$output" MGD_Barrierefrei -x '*/.DS_Store')
 # nur Dateiname in die .sha256, sonst klappt shasum -c im Download-Ordner nicht
 (cd "$(dirname "$output")" && shasum -a 256 "$(basename "$output")" > "$(basename "$output").sha256")

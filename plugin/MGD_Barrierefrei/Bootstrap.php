@@ -7,6 +7,7 @@ namespace Plugin\MGD_Barrierefrei;
 use JTL\Events\Dispatcher;
 use JTL\Plugin\Bootstrapper;
 use JTL\Shop;
+use JTL\Smarty\JTLSmarty;
 use Plugin\MGD_Barrierefrei\Kit\Platform\Jtl\Setup;
 use Plugin\MGD_Barrierefrei\Presentation\FrontendDocumentIntegrator;
 
@@ -18,7 +19,7 @@ final class Bootstrap extends Bootstrapper
         parent::boot($dispatcher);
         if (!Shop::isFrontend()) {
             // Aktiv-Meldung max 1x am Tag, nur im Admin - jetzt übern Baukasten
-            if (PHP_SAPI !== 'cli') {
+            if (Setup::isBackend()) {
                 Setup::forShop($this->getPlugin())?->ping();
             }
 
@@ -64,7 +65,8 @@ final class Bootstrap extends Bootstrapper
     public function updated($oldVersion, $newVersion)
     {
         parent::updated($oldVersion, $newVersion);
-        Setup::forShop($this->getPlugin())?->ping(true);
+        // neue Version direkt mitgeben, die alte Klasse ist beim CLI-Update noch geladen
+        Setup::forShop($this->getPlugin(), is_string($newVersion) ? ['version' => $newVersion] : [])?->ping(true);
     }
 
     // Deinstallieren: bei theme.michael-gahn.de abmelden, Datenordner nur bei "Daten löschen" weg
@@ -72,5 +74,12 @@ final class Bootstrap extends Bootstrapper
     {
         Setup::forShop($this->getPlugin())?->uninstall($deleteData);
         parent::uninstalled($deleteData);
+    }
+
+    // Tabs Übersicht + Weitere Plugins vom Baukasten (die Dateien in adminmenu/ bleiben als Rückfall)
+    public function renderAdminMenuTab(string $tabName, int $menuID, JTLSmarty $smarty): string
+    {
+        return Setup::renderTab(Setup::forShop($this->getPlugin()), $tabName)
+            ?? parent::renderAdminMenuTab($tabName, $menuID, $smarty);
     }
 }

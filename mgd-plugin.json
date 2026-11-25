@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "platform": "jtl5",
+  "icon": "plugin/MGD_Barrierefrei/preview.png",
+  "readme": "README.md",
+  "changelog": "CHANGELOG.md"
+}
